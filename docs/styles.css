@@ -1038,9 +1038,80 @@ body {
 }
 
 /* =====================
-   Demo Section
+   Demos Section
    ===================== */
 
+.demos-section {
+    padding: var(--section-padding-vertical) var(--section-padding-horizontal);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.demos-section .section-title {
+    margin-bottom: var(--content-gap);
+}
+
+.demo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--content-gap);
+    margin-top: var(--content-gap);
+}
+
+.demo-title {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: var(--element-gap);
+    letter-spacing: -0.5px;
+    color: var(--color-white);
+}
+
+.demo-item-subtitle {
+    font-size: clamp(0.95rem, 1.5vw, 1.125rem);
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    margin-bottom: var(--element-gap);
+    font-weight: 400;
+    max-width: 600px;
+}
+
+.video-container-small {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.video-frame-small {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.video-frame-small::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px;
+    padding: 2px;
+    background: linear-gradient(135deg, #4341b1 0%, #00d4ff 50%, #b14166 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Keep old demo section styles for backward compatibility */
 .demo-section {
     padding: var(--section-padding-vertical) var(--section-padding-horizontal);
     max-width: 1200px;
@@ -1104,6 +1175,34 @@ body {
     border-top: 1px solid var(--color-dark-gray);
     color: rgba(255, 255, 255, 0.5);
     font-size: 0.9rem;
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.footer-contact p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--color-white);
+}
+
+.footer-link {
+    color: var(--color-electric-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+.footer-link:hover {
+    color: var(--color-electric-blue-gradient-end);
+    text-decoration: underline;
 }
 
 .footer p:first-child {
@@ -1328,9 +1427,29 @@ body {
     .features-section,
     .comparison-section,
     .demo-section,
+    .demos-section,
     .downloads-section {
         padding: 2rem 0.75rem;
         margin-top: var(--content-gap);
+    }
+    
+    .demo-item {
+        margin-bottom: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    .demo-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .demo-item-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .video-frame-small {
+        max-width: 100%;
     }
 
     /* Features section doesn't need extra top margin */
