@@ -35,6 +35,7 @@
                         <li><a href="#marks" class="dropdown-link">Marks</a></li>
                         <li><a href="#sounds" class="dropdown-link">Sounds</a></li>
                         <li><a href="#dictation" class="dropdown-link">Dictation</a></li>
+                        <li><a href="#amend" class="dropdown-link">Amend</a></li>
                         <li><a href="#grid" class="dropdown-link">Grid</a></li>
                     </ul>
                 </li>
@@ -267,6 +268,18 @@
                                 <div class="command-row">
                                     <div class="command-phrase"><code>jet</code></div>
                                     <div class="command-description">If triggered on a browser, goes forward to the next page. If triggered in a coding IDE, goes forward to the next cursor position.</div>
+                                </div>
+                                <div class="command-row">
+                                    <div class="command-phrase"><code>refresh</code></div>
+                                    <div class="command-description">Refresh the current web page or application</div>
+                                </div>
+                                <div class="command-row">
+                                    <div class="command-phrase"><code>right desk</code></div>
+                                    <div class="command-description">Switch to the next virtual desktop</div>
+                                </div>
+                                <div class="command-row">
+                                    <div class="command-phrase"><code>left desk</code></div>
+                                    <div class="command-description">Switch to the previous virtual desktop</div>
                                 </div>
                             </div>
                         </div>
@@ -746,6 +759,36 @@
                         </div>
                     </div>
 
+                    <!-- Hidden Dictation Mode -->
+                    <div class="subsection">
+                        <div class="subsection-header" data-subsection="hidden-dictation">
+                            <h3 class="subsection-title">Hidden Dictation</h3>
+                            <span class="toggle-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="subsection-content">
+                            <p class="section-intro">This dictation mode offers the same high quality transcription as Full Dictation, but without displaying the visual dictation window on screen. To use it:</p>
+                            <ol class="dictation-steps">
+                                <li>Make sure your cursor is on a location in which you can type text:
+                                    <div class="screenshot-container">
+                                        📸 <!-- Placeholder for: Cursor ready for dictation -->
+                                    </div>
+                                </li>
+                                <li>Say the activation phrase <code class="command-code">hidden green</code>. This will start dictation.</li>
+                                <li>Wait for a pop up to appear in the bottom left of the screen, confirming Vocalance is listening for audio:
+                                    <div class="screenshot-container">
+                                        📸 <!-- Placeholder for: Vocalance listening confirmation -->
+                                    </div>
+                                </li>
+                                <li>Start speaking.</li>
+                                <li>Once you're finished, say the stop phrase <code class="command-code">amber</code>. This will automatically paste all the transcribed text at your cursor location.</li>
+                            </ol>
+                        </div>
+                    </div>
+
                     <!-- Smart Dictation Mode -->
                     <div class="subsection">
                         <div class="subsection-header" data-subsection="smart-dictation">
@@ -850,6 +893,126 @@
                         </div>
                     </div>
 
+                    <!-- Dictation Aliases -->
+                    <div class="custom-command-section">
+                        <h3 class="custom-command-title">Dictation Aliases</h3>
+                        <p class="custom-command-description">Aliases allow you to define custom word substitutions during dictation. When you say an alias phrase, Vocalance will automatically replace it with your predefined text.</p>
+                        <ol class="custom-command-steps">
+                            <li>Navigate to the Dictation tab in the Vocalance menu and click on the "Aliases" sub-tab:
+                                <div class="screenshot-container">
+                                    <img src="assets/instructions_screenshots/aliases_1.png" alt="Aliases tab in Dictation menu" class="centered-screenshot">
+                                </div>
+                            </li>
+                            <li>In the Add Alias panel, enter the spoken phrase you want to use as the trigger (e.g., "my email").</li>
+                            <li>Enter the text you want it to be replaced with (e.g., "contact@example.com").</li>
+                            <li>Click 'Add Alias'. The new alias will appear in the Manage Aliases list:
+                                <div class="screenshot-container">
+                                    <img src="assets/instructions_screenshots/aliases_2.png" alt="Aliases tab in Dictation menu" class="centered-screenshot">
+                                </div>
+                            </li>
+                            <li>Now, whenever you use any dictation mode and say your trigger phrase, Vocalance will automatically substitute it with your replacement text before pasting it.</li>
+                        </ol>
+                    </div>
+
+                    <!-- Dictation Modifiers -->
+                    <div class="custom-command-section">
+                        <h3 class="custom-command-title">Dictation Modifiers</h3>
+                        <p class="custom-command-description">Modifiers allow you to change the formatting of your dictated text on the fly. You only have access to modifiers <strong>while dictation is active</strong>.</p>
+                        
+                        <div class="smart-dictation-subsection" style="margin-top: 1.5rem;">
+                            <h4 class="smart-dictation-subtitle" style="margin-bottom: 1rem;">How to Use Modifiers</h4>
+                            <ul class="parametrization-list" style="margin-bottom: 1.5rem;">
+                                <li style="margin-bottom: 0.75rem;"><strong>Turning On:</strong> While dictating, simply say the modifier's activation word. You can find the <a href="#modifier-list" style="color: #00d4ff; text-decoration: none;">list of available activation words below</a>. The modifier will be applied to everything you say next.</li>
+                                <li><strong>Turning Off:</strong> To turn a modifier off, say its activation word again.</li>
+                            </ul>
+                            
+                            <div class="info-block" style="margin-top: 1.5rem; margin-bottom: 2rem;">
+                                <h4>No Stacking</h4>
+                                <p>You cannot stack modifiers. Only <strong>one</strong> modifier can be active at a time. Activating a new modifier will automatically replace the currently active one.</p>
+                            </div>
+                        </div>
+
+                        <div id="modifier-list" class="command-table" style="margin-top: var(--spacing-md);">
+                            <div class="command-row command-header">
+                                <div class="command-phrase">Activation Word</div>
+                                <div class="command-description">Description & Example</div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-phrase"><code>upper</code></div>
+                                <div class="command-description"><strong>Title Case:</strong> Capitalizes the first letter of each word.<br><em>Example: "hello world" → "Hello World"</em></div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-phrase"><code>capitals</code></div>
+                                <div class="command-description"><strong>ALL CAPS:</strong> Capitalizes every letter.<br><em>Example: "hello world" → "HELLO WORLD"</em></div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-phrase"><code>camel</code></div>
+                                <div class="command-description"><strong>camelCase:</strong> Removes spaces and capitalizes the first letter of each word except the first.<br><em>Example: "hello world" → "helloWorld"</em></div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-phrase"><code>snake</code></div>
+                                <div class="command-description"><strong>snake_case:</strong> Replaces spaces with underscores and makes everything lowercase.<br><em>Example: "hello world" → "hello_world"</em></div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-phrase"><code>kebab</code></div>
+                                <div class="command-description"><strong>kebab-case:</strong> Replaces spaces with hyphens and makes everything lowercase.<br><em>Example: "hello world" → "hello-world"</em></div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-phrase"><code>spelling</code></div>
+                                <div class="command-description"><strong>Spoken Punctuation:</strong> Converts spoken punctuation words into their symbols.<br><em>Example: "hello dot world" → "hello.world"</em></div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-phrase"><code>diminish</code></div>
+                                <div class="command-description"><strong>lowercase:</strong> Forces all text to be lowercase.<br><em>Example: "Hello World" → "hello world"</em></div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-phrase"><code>strip</code></div>
+                                <div class="command-description"><strong>Strip Punctuation:</strong> Removes all punctuation marks from the dictated text.<br><em>Example: "hello, world!" → "hello world"</em></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Amend Section -->
+            <div id="amend" class="instruction-section">
+                <div class="section-header" data-section="amend">
+                    <h2 class="section-title-inst">Amend</h2>
+                    <span class="toggle-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </span>
+                </div>
+                <div class="section-content">
+                    <p class="section-intro">Amend mode is a powerful feature that allows you to use voice commands to modify existing text using AI. Instead of just dictating new text, you can select text and tell Vocalance how to change it.</p>
+                    
+                    <div class="amend-section">
+                        <ol class="dictation-steps">
+                            <li>Highlight the text you want to modify in your current application:
+                                <div class="screenshot-container">
+                                    <img src="assets/instructions_screenshots/amend_1.png" alt="Text highlighted for amend" class="centered-screenshot">
+                                </div>
+                            </li>
+                            <li>Say the activation phrase <code class="command-code">amend</code>. Vocalance will automatically copy the selected text and start listening for your instructions.</li>
+                            <li>Wait for a pop up dictation window to appear on screen, similar to Smart Dictation:
+                                <div class="screenshot-container">
+                                    <img src="assets/instructions_screenshots/amend_2.png" alt="Amend mode listening" class="centered-screenshot">
+                                </div>
+                            </li>
+                            <li>Speak your instructions for how you want the text modified (e.g., "Translate this to Spanish", "Make this sound more professional", or "Fix the spelling errors").
+                                <div class="screenshot-container">
+                                    <img src="assets/instructions_screenshots/amend_3.png" alt="Amended text pasted" class="centered-screenshot">
+                                </div>                            </li>
+                            <li>Once you're finished giving instructions, say the stop phrase <code class="command-code">amber</code>.</li>
+                            <li>Vocalance will process the original text using your spoken instructions and automatically paste the updated text, replacing your original selection:
+                                <div class="screenshot-container">
+                                    <img src="assets/instructions_screenshots/amend_4.png" alt="Amended text pasted" class="centered-screenshot">
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
                 </div>
             </div>
 
@@ -880,6 +1043,24 @@
                         </div>
 
                         <p class="section-intro">Note, the above instructions are for the default "go" activated grid, which will move the mouse to your desired cell, and click. If you only want to move the mouse, without clicking, then repeat steps 1 and 2, but use the activation word "hover" instead of "go".</p>
+
+                        <!-- Drag and Drop / Highlight (Move Mode) -->
+                        <div class="grid-override-section">
+                            <h3 class="grid-override-title">Drag and Drop / Highlighting Text</h3>
+                            <p class="grid-override-description">You can also use the grid to click and drag from your current mouse position to a new location. This is extremely useful for moving files, dragging windows, or highlighting text across paragraphs.</p>
+                            
+                            <div class="grid-instructions-wrapper">
+                                <ol class="grid-steps">
+                                    <li>First, position your mouse cursor at the starting location. For example, hover over the file you want to move, or place your cursor at the very beginning of the text you want to highlight. You can do this using the "hover" grid command or your physical mouse.
+                                    </li>
+                                    <li>Say the activation word "move". The grid will instantly appear on your screen, overlaying your active window while keeping your starting position clear.
+                                    </li>
+                                    <li>Say the number of the destination cell. For example, the folder you want to drop the file into, or the exact cell where the text you want to highlight ends.</li>
+                                    <li>Vocalance will automatically click and hold at your starting location, smoothly drag the cursor to the destination cell, and release the click, completing the action!
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
 
                         <!-- Grid Granularity -->
                         <div class="grid-granularity-section">
