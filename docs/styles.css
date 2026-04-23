@@ -910,26 +910,8 @@ body {
 .downloads-container {
     display: flex;
     justify-content: center;
-    align-items: stretch;
-    gap: var(--content-gap);
-    margin-top: var(--element-gap);
-}
-
-.download-item {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: var(--element-gap);
-    height: auto;
-    justify-content: flex-start;
-}
-
-.coming-soon-text {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.9rem;
-    font-weight: 400;
-    margin: 0;
-    margin-top: var(--spacing-xs);
+    margin-top: var(--element-gap);
 }
 
 .btn-download-simple {
@@ -955,90 +937,68 @@ body {
     box-sizing: border-box;
 }
 
-.btn-download-simple:hover:not(.btn-disabled) {
+.btn-download-simple:hover {
     background: linear-gradient(135deg, var(--color-electric-blue-hover) 0%, var(--color-electric-blue) 100%);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(67, 65, 177, 0.4);
 }
 
-.btn-download-simple:active:not(.btn-disabled) {
+.btn-download-simple:active {
     transform: translateY(0);
 }
 
-.btn-disabled {
-    background: rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.5);
-    cursor: not-allowed;
-    box-shadow: none;
-}
-
 /* =====================
-   Beta Notice Section
+   Download / installation instructions
    ===================== */
 
-.beta-notice {
+.install-instructions {
+    position: relative;
     margin-top: calc(var(--content-gap) * 2);
     padding: var(--element-margin);
     background: linear-gradient(135deg, rgba(67, 65, 177, 0.08) 0%, rgba(0, 212, 255, 0.05) 50%, rgba(177, 65, 102, 0.08) 100%);
     border: 1px solid rgba(67, 65, 177, 0.3);
     border-radius: 16px;
-    text-align: center;
-    max-width: 600px;
+    max-width: 680px;
     margin-left: auto;
     margin-right: auto;
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 20px rgba(0, 212, 255, 0.05);
 }
 
-.beta-notice::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 16px;
-    padding: 1px;
-    background: linear-gradient(135deg, #4341b1 0%, #00d4ff 50%, #b14166 100%);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    z-index: -1;
-    pointer-events: none;
+.install-steps {
+    margin: 0;
+    padding-left: 1.35rem;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1rem;
+    line-height: 1.75;
+    list-style-position: outside;
 }
 
-.beta-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--color-electric-blue) 0%, var(--color-electric-blue-gradient-end) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.install-steps li {
+    padding-left: 0.5rem;
     margin-bottom: var(--spacing-sm);
 }
 
-.beta-description {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.8;
-    margin: 0;
+.install-steps li:last-of-type {
+    margin-bottom: 0;
 }
 
-.beta-link {
-    color: var(--color-electric-blue);
-    text-decoration: none;
+.install-steps strong {
+    color: var(--color-white);
     font-weight: 600;
-    transition: var(--transition-smooth);
-    border-bottom: 2px solid transparent;
 }
 
-.beta-link:hover {
-    color: var(--color-electric-blue-gradient-end);
-    border-bottom-color: var(--color-electric-blue);
+.install-video {
+    margin-top: var(--content-gap);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.beta-link:active {
-    opacity: 0.8;
+.install-instructions .video-container-small,
+.install-instructions .video-frame-small {
+    width: 100%;
 }
 
 /* =====================
@@ -1063,22 +1023,66 @@ body {
     margin-top: var(--content-gap);
 }
 
-.demo-title {
-    font-size: clamp(1.5rem, 3vw, 2.25rem);
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: var(--element-gap);
-    letter-spacing: -0.5px;
-    color: var(--color-white);
+.demo-item-primary {
+    margin-bottom: 0;
 }
 
-.demo-item-subtitle {
-    font-size: clamp(0.95rem, 1.5vw, 1.125rem);
-    color: rgba(255, 255, 255, 0.7);
+/* Secondary demos: two compact videos in one row */
+.demo-subrow {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.25rem, 3.5vw, 2.25rem);
+    width: 100%;
+    max-width: 900px;
+    margin: calc(var(--content-gap) * 1.15) auto var(--content-gap);
+    align-items: start;
+    justify-content: center;
+}
+
+.demo-item-compact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    margin-bottom: var(--element-gap);
-    font-weight: 400;
-    max-width: 600px;
+    min-width: 0;
+}
+
+.demo-title-compact {
+    font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+    font-weight: 700;
+    text-align: center;
+    color: var(--color-white);
+    margin: 0 0 0.4rem 0;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+}
+
+.demo-item-subtitle-compact {
+    font-size: clamp(0.8rem, 1.1vw, 0.9rem);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0 0 0.75rem 0;
+    line-height: 1.4;
+    max-width: 36ch;
+}
+
+.video-container-compact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.video-frame-compact {
+    max-width: min(100%, 400px);
+    width: 100%;
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.28);
+    border-radius: 12px;
+}
+
+.video-frame-compact::before {
+    border-radius: 12px;
+    padding: 1.5px;
 }
 
 .video-container-small {
@@ -1441,18 +1445,26 @@ body {
         margin-bottom: 1.5rem;
         margin-top: 1.5rem;
     }
-    
-    .demo-title {
-        font-size: 1.5rem;
-        margin-bottom: 0.75rem;
+
+    .demo-item-primary {
+        margin-top: 0.5rem;
     }
-    
-    .demo-item-subtitle {
-        font-size: 1rem;
-        margin-bottom: 1rem;
+
+    .demo-subrow {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        margin-top: 2.25rem;
+        margin-bottom: 2.25rem;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 2.5rem;
     }
     
     .video-frame-small {
+        max-width: 100%;
+    }
+
+    .video-frame-compact {
         max-width: 100%;
     }
 
@@ -1471,10 +1483,6 @@ body {
         margin-bottom: 0.5rem;
     }
 
-    .downloads-container {
-        flex-direction: column;
-        gap: 1rem;
-    }
 }
 
 @media (max-width: 480px) {
@@ -1580,21 +1588,12 @@ body {
         font-size: 0.6rem;
     }
 
-    .downloads-container {
-        flex-direction: column;
-        gap: var(--element-gap);
-    }
-
     .btn-download-simple {
         min-width: 180px;
         width: 180px;
         height: 48px;
         padding: 0 1.5rem;
         font-size: 1rem;
-    }
-
-    .coming-soon-text {
-        font-size: 0.75rem;
     }
 
     .footer {
